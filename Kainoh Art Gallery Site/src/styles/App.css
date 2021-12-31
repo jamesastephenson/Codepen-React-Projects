@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+.App {
+  align-items: center;
+  background: linear-gradient(black, rgb(34, 34, 34));
+  font-family: "Ubuntu", sans-serif;
+  display: flex;
+  flex-direction: column;
+}

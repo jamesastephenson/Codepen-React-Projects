@@ -1,0 +1,35 @@
+.Nav {
+  align-items: center;
+  background: black;
+  display: flex;
+  height: 3em;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.Nav button {
+  background: black;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  border-top: none;
+  border-bottom: none;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 0.15em;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  width: 30%;
+}
+
+.Nav button:hover {
+  border-left: 1px solid rgb(238, 132, 12);
+  border-right: 1px solid rgb(238, 132, 12);
+  color: rgb(238, 132, 12);
+  cursor: pointer;
+  width: 90%;
+}

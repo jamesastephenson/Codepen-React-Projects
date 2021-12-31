@@ -1,0 +1,55 @@
+.Card {
+  align-items: center;
+  background: linear-gradient(rgb(17, 17, 17), rgb(24, 24, 24));
+  border: 1px solid rgba(102, 102, 102, 0.616);
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 1em 0;
+  text-shadow: 2px 2px 2px black;
+  transition-duration: 0.2s;
+  width: 40%;
+}
+
+.Card h3 {
+  text-align: center;
+  width: 90%;
+}
+
+.Card h4 {
+  text-align: center;
+  width: 90%;
+}
+
+.Card p {
+  text-align: center;
+  width: 90%;
+  overflow-wrap: break-word;
+}
+
+.Card img {
+  border-radius: 5px;
+  transition-duration: 0.2s;
+  width: 90%;
+}
+
+.Card:hover {
+  background: linear-gradient(rgb(36, 36, 36), rgb(27, 27, 27));
+  border: 1px solid rgba(102, 102, 102, 0.918);
+  color: rgb(238, 132, 12);
+  cursor: pointer;
+  opacity: 100%;
+}
+
+.Card:hover img {
+  box-shadow: 2px 2px 10px rgb(46, 46, 46);
+  transform: scale(105%);
+}
+
+@media only screen and (max-width: 600px) {
+  .Card {
+    width: 70%;
+  }
+}

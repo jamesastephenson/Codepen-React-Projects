@@ -1,0 +1,16 @@
+.Container {
+  background-color: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 1em 0em;
+}
+
+@media only screen and (max-width: 600px) {
+  .Container {
+    background-color: none;
+    display: flex;
+    padding: 1em 0em;
+    width: 100%;
+  }
+}
