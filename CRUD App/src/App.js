@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import AddNote from "./AddNote.js";
 import EditNote from "./EditNote.js";
-import NoteTable from "./NoteTable.js";
 import TestDiv from "./TestDiv.js";
 import "./styles.scss";
 
@@ -44,7 +43,7 @@ export default function App() {
       <h1>CRUD Notecard App</h1>
       <div className="flexRow">
         {editing ? (
-          <div className="flexSection">
+          <div className="flexSection editing">
             <h2>Edit Note</h2>
             <EditNote
               setEditing={setEditing}
@@ -59,7 +58,6 @@ export default function App() {
           </div>
         )}
         <div className="flexTable">
-          {/* old component <TestDiv notes={notes} editNote={editNote} deleteNote={deleteNote} /> */}
           <TestDiv notes={notes} editNote={editNote} deleteNote={deleteNote} />
         </div>
       </div>

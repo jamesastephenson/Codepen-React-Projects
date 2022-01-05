@@ -13,7 +13,8 @@ export default function AddNote(props) {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        if (!note.title || !note.text) return;
+        if (!note.title || !note.text)
+          return alert("Please fill the Note Title and Text");
 
         props.addNote(note);
         setNote(initialNoteState);
@@ -30,12 +31,13 @@ export default function AddNote(props) {
         onChange={handleInputChange}
       />
       <label>Text</label>
-      <input
+      <textarea
         className="inputNoteText"
         type="text"
         name="text"
         size="50"
-        maxLength="140"
+        rows="9"
+        maxLength="280"
         value={note.text}
         onChange={handleInputChange}
       />
