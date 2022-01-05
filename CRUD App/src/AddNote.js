@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
 export default function AddNote(props) {
+  // empty note data
   const initialNoteState = { id: null, title: "", text: "" };
+  // set default state
   const [note, setNote] = useState(initialNoteState);
 
   const handleInputChange = (e) => {
@@ -13,10 +15,13 @@ export default function AddNote(props) {
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        // alert if Title or Text is missing and prevent submission
         if (!note.title || !note.text)
           return alert("Please fill the Note Title and Text");
 
+        // add note to notes state (passed to App.js)
         props.addNote(note);
+        // return to default state to await next input
         setNote(initialNoteState);
       }}
     >

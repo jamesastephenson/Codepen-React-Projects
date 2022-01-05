@@ -4,39 +4,50 @@ import EditNote from "./EditNote.js";
 import TestDiv from "./TestDiv.js";
 import "./styles.scss";
 
-export default function App() {
-  const noteData = [
-    { id: 1, title: "Note 1", text: "lorem ipsum blah blah blah blah" },
-    { id: 2, title: "Note 2", text: "lorem ipsum blah blah blah blah" },
-    { id: 3, title: "Note 3", text: "lorem ipsum blah blah blah blah" }
-  ];
+// TO DO:
+// - final styling changes
+// - organize styles and components
 
+const noteData = [
+  { id: 1, title: "Note 1", text: "lorem ipsum blah blah blah blah" },
+  { id: 2, title: "Note 2", text: "lorem ipsum blah blah blah blah" },
+  { id: 3, title: "Note 3", text: "lorem ipsum blah blah blah blah" }
+];
+
+// var to assign note IDs without overwriting (incremembted in addNote())
+var idAssigner = noteData.length;
+
+export default function App() {
+  // default state
   const [notes, setNotes] = useState(noteData);
   const [editing, setEditing] = useState(false);
-
   const initialNoteState = { id: null, title: "", text: "" };
   const [currentNote, setCurrentNote] = useState(initialNoteState);
 
+  // add note to notes
   const addNote = (note) => {
-    note.id = notes.length + 1;
+    // incrememt idAssigner and set value to id
+    idAssigner += 1;
+    note.id = idAssigner;
     setNotes([...notes, note]);
   };
 
+  // filter through notes, keep all notes that don't match id passed in
   const deleteNote = (id) => {
     setNotes(notes.filter((note) => note.id !== id));
   };
 
+  // enable editing and select current note
   const editNote = (note) => {
     setEditing(true);
     setCurrentNote({ id: note.id, title: note.title, text: note.text });
   };
 
+  // disable editing and apply updated info to selected note
   const updateNote = (id, updatedNote) => {
     setEditing(false);
     setNotes(notes.map((note) => (note.id === id ? updatedNote : note)));
   };
-
-  // need to add edit user and update user functions
 
   return (
     <div className="App">
