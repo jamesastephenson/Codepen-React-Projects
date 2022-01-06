@@ -4,9 +4,6 @@ import EditNote from "./components/EditNote.js";
 import TestDiv from "./components/NoteTable.js";
 import "./styles/App.scss";
 
-// TO DO:
-// - final styling changes
-
 const noteData = [
   { id: 1, title: "Note 1", text: "Get groceries" },
   { id: 2, title: "Note 2", text: "Put away groceries" },
