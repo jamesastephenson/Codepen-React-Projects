@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import AddNote from "./components/AddNote.js";
 import EditNote from "./components/EditNote.js";
-import TestDiv from "./components/TestDiv.js";
+import TestDiv from "./components/NoteTable.js";
 import "./styles/App.scss";
 
 // TO DO:
 // - final styling changes
 
 const noteData = [
-  { id: 1, title: "Note 1", text: "lorem ipsum blah blah blah blah" },
-  { id: 2, title: "Note 2", text: "lorem ipsum blah blah blah blah" },
-  { id: 3, title: "Note 3", text: "lorem ipsum blah blah blah blah" }
+  { id: 1, title: "Note 1", text: "Get groceries" },
+  { id: 2, title: "Note 2", text: "Put away groceries" },
+  { id: 3, title: "Note 3", text: "Cook something with groceries" }
 ];
 
 // var to assign note IDs without overwriting (incremented in addNote())
@@ -50,7 +50,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>CRUD Notecard App</h1>
+      <h1>Notecards</h1>
       <div className="flexRow">
         {editing ? (
           <div className="flexSection editing">
@@ -71,6 +71,7 @@ export default function App() {
           <TestDiv notes={notes} editNote={editNote} deleteNote={deleteNote} />
         </div>
       </div>
+      <footer>James Stephenson 2022</footer>
     </div>
   );
 }
