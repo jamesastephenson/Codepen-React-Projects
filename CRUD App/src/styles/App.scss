@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
+
+@mixin glassBackground {
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(250, 250, 250, 0.699));
+  border-radius: 7px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.507);
+  margin: 0.5em;
+  padding: 1em;
+}
+
+.App {
+  background: linear-gradient(127deg, rgb(143, 241, 192), rgba(129, 216, 170));
+  font-family: 'Overpass', sans-serif;
+  padding: 1em;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.flexRow {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+  .flexRow {
+    display: block;
+}
+}
