@@ -37,10 +37,11 @@
     img {
       padding: 0 1em;
       transition-duration: 0.2s;
-      width: 70%;
+      width: 92%;
     }
 
     p {
+      max-width: 80%;
       padding: 0 1em 0em;
     }
   }
@@ -65,7 +66,7 @@
     border-radius: 7px;
     text-align: center;
     margin-top: 1em;
-    padding: 0.25em 0.5em;
+    padding: 0.25em 0.25em;
     transition-duration: 0.2s;
 
     a {
@@ -92,13 +93,9 @@
 }
 
 /* ADD RESPONSIVE MEDIA QUERIES FOR MOBILE */
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 700px) {
   .projectCards {
     display: block;
 
-    img {
-      max-height: 200px;
-      max-width: 200px;
-    }
   }
 }
