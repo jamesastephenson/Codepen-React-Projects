@@ -1,0 +1,104 @@
+@mixin glassBackground {
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(250, 250, 250, 0.699));
+  border-radius: 7px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.507);
+  margin: 0.75em;
+  padding: none;
+}
+
+@mixin darkGlassBackground {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(17, 17, 17, 0.699));
+  color: white;
+}
+
+.projectCards {
+  color: black;
+  display: flex;
+  width: 100%;
+
+  .projectSection {
+    @include glassBackground();
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    transition-duration: 0.2s;
+
+    h2 {
+      @include darkGlassBackground();
+      border: 1px solid black;
+      border-radius: 7px 7px 0 0;
+      margin-top: 0em;
+      padding: 0.25em 0;
+      text-align: center;
+      text-shadow: 2px 2px 5px black;
+      width: 100%;
+    }
+
+    img {
+      padding: 0 1em;
+      transition-duration: 0.2s;
+      width: 70%;
+    }
+
+    p {
+      padding: 0 1em 0em;
+    }
+  }
+
+  .projectSection:hover {
+    background: rgba(105, 105, 105, 0.726);
+    color: white;
+    text-shadow: 1px 1px 4px black;
+
+    img {
+      transform: scale(105%);
+    }
+
+    .links {
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.699);
+      transform: scale(108%);
+    }
+  }
+
+  .links {
+    @include darkGlassBackground();
+    border-radius: 7px;
+    text-align: center;
+    margin-top: 1em;
+    padding: 0.25em 0.5em;
+    transition-duration: 0.2s;
+
+    a {
+      border: none;
+      color: rgb(127, 209, 168);
+      font-size: 1.25em;
+      text-decoration: none;
+      text-shadow: 2px 2px 3px black;
+      transition-duration: 0.2s;
+    }  
+
+    a:hover {
+      border-bottom: 1px solid rgb(140, 255, 200);
+      color: rgb(140, 255, 200);
+      text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.26);
+    }
+  
+    span {
+      color: rgb(127, 209, 168);
+      margin: 0 0.5em;
+      text-shadow: 1px 1px 1px black;
+    }  
+  }
+}
+
+/* ADD RESPONSIVE MEDIA QUERIES FOR MOBILE */
+@media only screen and (max-width: 680px) {
+  .projectCards {
+    display: block;
+
+    img {
+      max-height: 200px;
+      max-width: 200px;
+    }
+  }
+}
