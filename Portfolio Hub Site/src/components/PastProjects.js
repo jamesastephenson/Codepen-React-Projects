@@ -12,12 +12,12 @@ export default function PastProjects() {
     <div className="projectCards">
       <div className="projectSection">
         <h2>Notecards</h2>
-        <img src={noteApp} alt="project placeholder" />
         <div className="links">
           <a href="#">Site Link</a>
           <span>|</span>
           <a href="#">GitHub</a>
         </div>
+        <img src={noteApp} alt="project placeholder" />
         <p>
           CRUD (create, read, update, delete) functionality, Local and Global
           State, Glass UI Design, Responsive UI.
@@ -27,12 +27,12 @@ export default function PastProjects() {
       </div>
       <div className="projectSection">
         <h2>Art Gallery</h2>
-        <img src={kaiGallery} alt="project placeholder" />
         <div className="links">
           <a href="#">Site Link</a>
           <span>|</span>
           <a href="#">GitHub</a>
         </div>
+        <img src={kaiGallery} alt="project placeholder" />
         <p>
           Gallery site for an independent artist. State transfer through props,
           Modal functionality, Responsive UI, Hover effects.
@@ -42,12 +42,12 @@ export default function PastProjects() {
       </div>
       <div className="projectSection">
         <h2>Authors</h2>
-        <img src={modernistAuthor} alt="project placeholder" />
         <div className="links">
           <a href="#">Site Link</a>
           <span>|</span>
           <a href="#">GitHub</a>
         </div>
+        <img src={modernistAuthor} alt="project placeholder" />
         <p>
           REST API calls, Skip To Content button with state updates, CSS
           Animation, Responsive UI.

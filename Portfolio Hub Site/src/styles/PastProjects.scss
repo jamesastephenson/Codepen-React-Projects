@@ -20,6 +20,7 @@
     @include glassBackground();
     align-items: center;
     display: flex;
+    flex: 1;
     flex-direction: column;
     transition-duration: 0.2s;
 
@@ -43,6 +44,7 @@
     p {
       max-width: 80%;
       padding: 0 1em 0em;
+      text-align: center;
     }
   }
 
@@ -65,8 +67,8 @@
     @include darkGlassBackground();
     border-radius: 7px;
     text-align: center;
-    margin-top: 1em;
-    padding: 0.25em 0.25em;
+    margin-bottom: 1.25em;
+    padding: 0.25em 0.5em;
     transition-duration: 0.2s;
 
     a {
@@ -96,6 +98,5 @@
 @media only screen and (max-width: 700px) {
   .projectCards {
     display: block;
-
   }
 }
