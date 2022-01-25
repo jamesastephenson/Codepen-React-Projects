@@ -1,0 +1,78 @@
+.App {
+  background-color: rgb(206, 153, 255);
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.Results {
+  background: linear-gradient(175deg, rgb(199, 237, 255), rgb(200, 224, 255));
+  border-radius: 9px;
+  box-shadow: 0px 0px 4px black;
+  margin: 1em;
+  padding: none;
+}
+
+.ResultHeader {
+  background: linear-gradient(175deg, rgb(69, 69, 255), rgb(160, 160, 255));
+  border-radius: 9px 9px 0px 0px;
+  color: white;
+  margin: 0;
+  padding: 0.25em;
+  text-shadow: 2px 1px 3px rgb(23, 23, 80);
+}
+
+.ResultText {
+  margin: 0em 2em;
+  padding-bottom: 2em;
+  text-align: start;
+}
+
+.SearchBar {
+  background: linear-gradient(175deg, rgb(199, 237, 255), rgb(200, 224, 255));
+  border-radius: 9px;
+  box-shadow: 0px 0px 4px black;
+  margin: 1em;
+  padding: none;
+}
+
+.SearchBtn {
+  background: rgb(96, 96, 255);
+  border: 1px solid rgb(96, 96, 255);
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.616);
+  color: white;
+  font-size: 1.25em;
+  padding: 0.15em 1em;
+  margin: 0 1em;
+  text-shadow: 2px 1px 3px rgb(23, 23, 80);
+  transition: 0.3s;
+}
+
+.SearchBtn:hover {
+  background: rgb(56, 56, 197);
+  border: 1px solid rgb(56, 56, 197);
+  cursor: pointer;
+}
+
+.SearchHeader {
+  background: linear-gradient(175deg, rgb(69, 69, 255), rgb(160, 160, 255));
+  border-radius: 9px 9px 0px 0px;
+  color: white;
+  font-size: 1.5em;
+  margin: 0;
+  padding: 0.25em;
+  text-shadow: 2px 1px 3px rgb(23, 23, 80);
+}
+
+.SearchInput {
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.616);
+  margin: 1em 0;
+  font-size: 1.25em;
+  transition-duration: 0.3s;
+}
+
+.SearchInput:hover {
+  border: 2px solid rgb(56, 56, 197);
+  box-shadow: 1px 1px 3px rgb(56, 56, 197);
+}
