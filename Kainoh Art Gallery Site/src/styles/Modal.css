@@ -61,3 +61,12 @@
   border-bottom: 1px solid rgb(31, 31, 31);
   text-align: center;
 }
+
+.emailLink {
+  color: rgb(238, 132, 12);
+  transition-duration: 0.2s;
+}
+
+.emailLink:hover {
+  color: rgb(163, 93, 12);
+}
