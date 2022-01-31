@@ -1,0 +1,49 @@
+.App {
+  align-items: center;
+  background: rgb(255, 110, 110);
+  font-family: sans-serif;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.gameboard {
+  align-items: center;
+  border: 1px solid black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(17, 17, 17, 0.699));
+  border-radius: 7px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.507);
+  margin: 1em;
+  padding: 1em;
+}
+
+.header {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(17, 17, 17, 0.699));
+  border: 1px solid black;
+  border-radius: 7px;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.507);
+  color: white;
+  margin: 0.5em;
+  padding: 1em;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  margin: 1em;
+  padding: 1em;
+  width: 20em;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(17, 17, 17, 0.699));
+  border-radius: 7px;
+  text-align: center;
+}
+
+button {
+  min-width: 8em;
+}
