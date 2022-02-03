@@ -1,4 +1,5 @@
 import "./styles.css";
+import Modal from "./Modal.js";
 import { useState } from "react";
 
 export default function Gamebooard() {
@@ -76,6 +77,7 @@ export default function Gamebooard() {
   // score currently isn't working
   const [score, setScore] = useState(0);
   const [arrPosition, setArrPosition] = useState(0);
+  const [modalState, setModalState] = useState(null);
 
   // Randomize list with Fisher-Yates algorithm
   function RandomizeArray(array) {
@@ -97,11 +99,22 @@ export default function Gamebooard() {
     if (objectArr[arrPosition].series === "Gundam") {
       setScore(score + 1);
       PlaySound(correct);
+      setModalState("O");
+      setTimeout(() => {
+        setModalState(null);
+      }, 1000);
       //console.log(score);
     } else {
+      setModalState("X");
+      setTimeout(() => {
+        setModalState(null);
+      }, 1000);
       PlaySound(incorrect);
     }
-    NextItem();
+
+    setTimeout(() => {
+      NextItem();
+    }, 1000);
   }
 
   // Check if current item is from Guide, update score if it is
@@ -109,11 +122,22 @@ export default function Gamebooard() {
     if (objectArr[arrPosition].series === "Guide") {
       PlaySound(correct);
       setScore(score + 1);
+      setModalState("O");
+      setTimeout(() => {
+        setModalState(null);
+      }, 1000);
       //console.log(score);
     } else {
+      setModalState("X");
+      setTimeout(() => {
+        setModalState(null);
+      }, 1000);
       PlaySound(incorrect);
     }
-    NextItem();
+
+    setTimeout(() => {
+      NextItem();
+    }, 1000);
   }
 
   // Move to next arr position, end game if at end of arr
@@ -149,6 +173,7 @@ export default function Gamebooard() {
         <button type="button" onClick={ChooseGuide} className="guide">
           <h3>Guide</h3>
         </button>
+        <Modal text={modalState} />
       </div>
     </div>
   );

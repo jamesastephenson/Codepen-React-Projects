@@ -18,7 +18,7 @@
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(17, 17, 17, 0.699));
   border-radius: 7px;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.507);
-  margin: 1em;
+  margin: 1em auto;
   padding: 1em;
 }
 
@@ -38,7 +38,7 @@
   border: 1px solid black;
   margin: 1em;
   padding: 1em;
-  width: 20em;
+  width: 24em;
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(17, 17, 17, 0.699));
   border-radius: 7px;
   text-align: center;
@@ -60,9 +60,20 @@
   text-shadow: 1px 1px 1px rgb(0, 24, 238);
 }
 
+.modal {
+  background: rgba(0, 0, 255, 0);
+  color: white;
+  font-size: 8em;
+  position: fixed;
+  text-shadow: 1px 1px 2px black;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
 button {
   font-size: 1.1em;
-  min-width: 8em;
+  min-width: 9em;
   transition-duration: 0.2s;
 }
 
