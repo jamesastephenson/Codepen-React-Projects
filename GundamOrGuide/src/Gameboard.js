@@ -3,8 +3,106 @@ import Modal from "./Modal.js";
 import { useState } from "react";
 
 export default function Gamebooard() {
+  const [score, setScore] = useState(0);
+  const [newArr, setNewArr] = useState([]);
+  const [arrPosition, setArrPosition] = useState(0);
+  const [modalState, setModalState] = useState(null);
+  const [startGame, setStartGame] = useState(false);
+
+  // Randomize list with Fisher-Yates algorithm
+  function RandomizeArray(array) {
+    for (let i = 0; i < array.length; i++) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
+  // Initialize game state, randomize object arr
+  function GameStart() {
+    setNewArr(RandomizeArray(objectArr));
+    console.log(newArr[0]);
+    setStartGame(true);
+  }
+
+  // Check if current item is from Gundam, update score if it is
+  function ChooseGundam() {
+    // prevent clicking if game hasn't started
+    if (startGame === false) {
+      return "";
+      // correct option
+    } else if (newArr[arrPosition].series === "Gundam") {
+      setScore(score + 1);
+      PlaySound(correct);
+      setModalState("O");
+      setTimeout(() => {
+        setModalState(null);
+      }, 1000);
+      // incorrect option
+    } else {
+      setModalState("X");
+      setTimeout(() => {
+        setModalState(null);
+      }, 1000);
+      PlaySound(incorrect);
+    }
+    // move to next item (timed with modal)
+    setTimeout(() => {
+      NextItem();
+    }, 1000);
+  }
+
+  // Check if current item is from Guide, update score if it is
+  function ChooseGuide() {
+    // prevent clicking if game hasn't started
+    if (startGame === false) {
+      return "";
+      // correct option
+    } else if (newArr[arrPosition].series === "Guide") {
+      PlaySound(correct);
+      setScore(score + 1);
+      setModalState("O");
+      setTimeout(() => {
+        setModalState(null);
+      }, 1000);
+      // incorrect option
+    } else {
+      setModalState("X");
+      setTimeout(() => {
+        setModalState(null);
+      }, 1000);
+      PlaySound(incorrect);
+    }
+    // move to next item (timed with modal)
+    setTimeout(() => {
+      NextItem();
+    }, 1000);
+  }
+
+  // Move to next arr position, end game if at end of arr
+  function NextItem() {
+    //console.log(newArr[arrPosition]);
+    if (arrPosition === objectArr.length - 1) {
+      GameEnd();
+    } else {
+      setArrPosition(arrPosition + 1);
+    }
+  }
+
+  // End game and display final score
+  function GameEnd() {
+    alert(`Final Score: ${score}`);
+  }
+
+  // Play sound effect
+  function PlaySound(audio) {
+    audio.play();
+  }
+
   // main array of quiz answers
-  const objectArr = [
+  let objectArr = [
     { name: "Amuro Ray", series: "Gundam" },
     { name: "Bright Noah", series: "Gundam" },
     { name: "Fraw Bow", series: "Gundam" },
@@ -73,98 +171,13 @@ export default function Gamebooard() {
   let correct = new Audio("/correct.mp3");
   let incorrect = new Audio("/incorrect.mp3");
 
-  // PROBABLY NEED STATE FOR GAMESTART
-  // score currently isn't working
-  const [score, setScore] = useState(0);
-  const [arrPosition, setArrPosition] = useState(0);
-  const [modalState, setModalState] = useState(null);
-
-  // Randomize list with Fisher-Yates algorithm
-  function RandomizeArray(array) {
-    for (let i = 0; i < array.length; i++) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-  }
-
-  // Initialize game state, randomize object arr
-  function GameStart() {
-    RandomizeArray(objectArr);
-  }
-
-  // Check if current item is from Gundam, update score if it is
-  function ChooseGundam() {
-    if (objectArr[arrPosition].series === "Gundam") {
-      setScore(score + 1);
-      PlaySound(correct);
-      setModalState("O");
-      setTimeout(() => {
-        setModalState(null);
-      }, 1000);
-      //console.log(score);
-    } else {
-      setModalState("X");
-      setTimeout(() => {
-        setModalState(null);
-      }, 1000);
-      PlaySound(incorrect);
-    }
-
-    setTimeout(() => {
-      NextItem();
-    }, 1000);
-  }
-
-  // Check if current item is from Guide, update score if it is
-  function ChooseGuide() {
-    if (objectArr[arrPosition].series === "Guide") {
-      PlaySound(correct);
-      setScore(score + 1);
-      setModalState("O");
-      setTimeout(() => {
-        setModalState(null);
-      }, 1000);
-      //console.log(score);
-    } else {
-      setModalState("X");
-      setTimeout(() => {
-        setModalState(null);
-      }, 1000);
-      PlaySound(incorrect);
-    }
-
-    setTimeout(() => {
-      NextItem();
-    }, 1000);
-  }
-
-  // Move to next arr position, end game if at end of arr
-  function NextItem() {
-    if (arrPosition === objectArr.length - 1) {
-      GameEnd();
-    } else {
-      setArrPosition(arrPosition + 1);
-    }
-  }
-
-  // End game and display final score
-  function GameEnd() {
-    alert(`Final Score: ${score}`);
-  }
-
-  // Play sound effect
-  function PlaySound(audio) {
-    audio.play();
-  }
-
-  //GameStart();
-  //console.log(objectArr);
-
   return (
     <div className="gameboard">
-      <h1>{objectArr[arrPosition].name}</h1>
+      {startGame === false ? (
+        <button onClick={GameStart}>Start Game</button>
+      ) : (
+        <h1>{newArr[arrPosition].name}</h1>
+      )}
 
       <div className="controls">
         <button type="button" onClick={ChooseGundam} className="gundam">
