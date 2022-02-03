@@ -2,6 +2,7 @@ import "./styles.css";
 import { useState } from "react";
 
 export default function Gamebooard() {
+  // main array of quiz answers
   const objectArr = [
     { name: "Amuro Ray", series: "Gundam" },
     { name: "Bright Noah", series: "Gundam" },
@@ -67,6 +68,10 @@ export default function Gamebooard() {
     { name: "Zarniwoop Vann Harl", series: "Guide" }
   ];
 
+  // sound effects
+  let correct = new Audio("/correct.mp3");
+  let incorrect = new Audio("/incorrect.mp3");
+
   // PROBABLY NEED STATE FOR GAMESTART
   // score currently isn't working
   const [score, setScore] = useState(0);
@@ -91,7 +96,10 @@ export default function Gamebooard() {
   function ChooseGundam() {
     if (objectArr[arrPosition].series === "Gundam") {
       setScore(score + 1);
+      PlaySound(correct);
       //console.log(score);
+    } else {
+      PlaySound(incorrect);
     }
     NextItem();
   }
@@ -99,8 +107,11 @@ export default function Gamebooard() {
   // Check if current item is from Guide, update score if it is
   function ChooseGuide() {
     if (objectArr[arrPosition].series === "Guide") {
+      PlaySound(correct);
       setScore(score + 1);
       //console.log(score);
+    } else {
+      PlaySound(incorrect);
     }
     NextItem();
   }
@@ -117,6 +128,11 @@ export default function Gamebooard() {
   // End game and display final score
   function GameEnd() {
     alert(`Final Score: ${score}`);
+  }
+
+  // Play sound effect
+  function PlaySound(audio) {
+    audio.play();
   }
 
   //GameStart();
