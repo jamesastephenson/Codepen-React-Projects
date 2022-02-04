@@ -178,8 +178,10 @@ export default function Gamebooard() {
         <h1>{newArr[arrPosition].name}</h1>
       ) : (
         <h1>
-          <span class="score">Final Score: {score}</span> <br /> Refresh to play
-          again
+          <span class="score">
+            Final Score: {score} / {newArr.length}
+          </span>{" "}
+          <br /> Refresh to play again
         </h1>
       )}
 
