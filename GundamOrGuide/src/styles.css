@@ -8,6 +8,18 @@
   flex-direction: column;
 }
 
+.controls {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  margin: 1em;
+  padding: 1em;
+  width: 24em;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(17, 17, 17, 0.699));
+  border-radius: 7px;
+  text-align: center;
+}
+
 .gameboard {
   align-items: center;
   border: 1px solid black;
@@ -22,7 +34,24 @@
   padding: 1em;
 }
 
+.guide {
+  background: rgb(0, 201, 0);
+  border: 2px solid rgb(0, 201, 0);
+  border-radius: 8px;
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 3px rgba(0, 238, 226, 0.63);
+}
+
+.gundam {
+  background: rgb(255, 97, 97);
+  border: 2px solid rgb(255, 97, 97);
+  border-radius: 8px;
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 3px rgba(238, 222, 0, 0.63);
+}
+
 .header {
+  align-items: center;
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(17, 17, 17, 0.699));
   border: 1px solid black;
   border-radius: 7px;
@@ -32,32 +61,9 @@
   padding: 1em;
 }
 
-.controls {
-  display: flex;
-  justify-content: space-around;
-  border: 1px solid black;
-  margin: 1em;
-  padding: 1em;
-  width: 24em;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(17, 17, 17, 0.699));
-  border-radius: 7px;
-  text-align: center;
-}
-
-.gundam {
-  background: white;
-  border: 2px solid red;
-  border-radius: 8px;
-  color: rgb(0, 0, 165);
-  text-shadow: 1px 1px 1px rgb(255, 255, 0);
-}
-
-.guide {
-  background: black;
-  border: 2px solid rgb(0, 201, 0);
-  border-radius: 8px;
-  color: rgb(0, 255, 255);
-  text-shadow: 1px 1px 1px rgb(0, 24, 238);
+.lead {
+  margin: 0 auto;
+  width: 70%;
 }
 
 .modal {
@@ -69,6 +75,18 @@
   top: 0;
   z-index: 100;
   width: 100%;
+
+  /*prevent user hover*/
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.score {
+  color: rgb(102, 255, 0);
 }
 
 button {
@@ -80,4 +98,17 @@ button {
 button:hover {
   cursor: pointer;
   transform: scale(110%);
+}
+
+@media only screen and (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+    width: 12em;
+  }
+
+  button {
+    margin: 1em auto;
+    max-width: 10em;
+    min-width: 10em;
+  }
 }

@@ -7,7 +7,7 @@ export default function Gamebooard() {
   const [newArr, setNewArr] = useState([]);
   const [arrPosition, setArrPosition] = useState(0);
   const [modalState, setModalState] = useState(null);
-  const [startGame, setStartGame] = useState(false);
+  const [startGame, setStartGame] = useState("ready");
 
   // Randomize list with Fisher-Yates algorithm
   function RandomizeArray(array) {
@@ -23,14 +23,13 @@ export default function Gamebooard() {
   // Initialize game state, randomize object arr
   function GameStart() {
     setNewArr(RandomizeArray(objectArr));
-    console.log(newArr[0]);
-    setStartGame(true);
+    setStartGame("started");
   }
 
   // Check if current item is from Gundam, update score if it is
   function ChooseGundam() {
-    // prevent clicking if game hasn't started
-    if (startGame === false) {
+    // prevent clicking if game is over or hasn't started
+    if (startGame === "ready" || startGame === "end") {
       return "";
       // correct option
     } else if (newArr[arrPosition].series === "Gundam") {
@@ -56,8 +55,8 @@ export default function Gamebooard() {
 
   // Check if current item is from Guide, update score if it is
   function ChooseGuide() {
-    // prevent clicking if game hasn't started
-    if (startGame === false) {
+    // prevent clicking if game is over or hasn't started
+    if (startGame === "ready" || startGame === "end") {
       return "";
       // correct option
     } else if (newArr[arrPosition].series === "Guide") {
@@ -93,7 +92,7 @@ export default function Gamebooard() {
 
   // End game and display final score
   function GameEnd() {
-    alert(`Final Score: ${score}`);
+    setStartGame("end");
   }
 
   // Play sound effect
@@ -173,10 +172,15 @@ export default function Gamebooard() {
 
   return (
     <div className="gameboard">
-      {startGame === false ? (
+      {startGame === "ready" ? (
         <button onClick={GameStart}>Start Game</button>
-      ) : (
+      ) : startGame === "started" ? (
         <h1>{newArr[arrPosition].name}</h1>
+      ) : (
+        <h1>
+          <span class="score">Final Score: {score}</span> <br /> Refresh to play
+          again
+        </h1>
       )}
 
       <div className="controls">
