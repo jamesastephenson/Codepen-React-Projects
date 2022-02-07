@@ -1,0 +1,33 @@
+.ScrollToTop {
+  display: flex;
+  text-shadow: 1px 1px 2px black;
+  width: 100%;
+
+  button {
+    background: rgba(12, 12, 12, 0.726);
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    border-bottom: none;
+    border-top: none;
+    font-size: 1em;
+    color: white;
+    margin: 0 auto 1em auto;
+    padding: 0.5em;
+    transition-duration: 0.4s;
+    width: 40%;
+  }
+
+  button:hover {
+    background: rgba(12, 12, 12, 0.856);
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+    color: rgb(140, 255, 200);
+    cursor: pointer;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.527);
+    width: 90%;
+  }
+}
+
+
+
+
